@@ -6,8 +6,11 @@ const bodyParser = require("body-parser");
 const movieRoute = require("./routes/movies");
 const genreRoute = require("./routes/genres");
 const userRoute = require("./routes/users");
+const stocksRoute = require("./routes/stocksData");
 
 const app = express();
+
+process.env["BACKENDPORT"] = 3000;
 
 //To prevent CORS errors
 app.use(cors());
@@ -35,6 +38,7 @@ app.use(bodyParser.json({ limit: "10mb" }));
 app.use("/api/movies", movieRoute);
 app.use("/api/genres", genreRoute); //cache
 app.use("/api/users", userRoute);
+app.use("/api/stocks", stocksRoute);
 
 //Serve our static asset
 app.use(express.static("frontend/build"));
