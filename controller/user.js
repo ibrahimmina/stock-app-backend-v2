@@ -6,7 +6,6 @@ const nodemailer = require("nodemailer");
 
 exports.signUp = (req, res) => {
   const { username,email, password } = req.body;
-  console.log("User Name = " + username);
 
   User.findOne({ email }) //Checking if the email exist
     .then((user) => {
