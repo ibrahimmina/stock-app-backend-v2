@@ -52,7 +52,8 @@ exports.signUp = (req, res) => {
                   message: "The user has been signed up successfully!",
                   userData,
                   favouriteStocks: [],
-                  purchasedStocks: [],                });
+                  purchasedStocks: [],                
+                });
               })
               .catch((error) => res.status(500).json({ error }));
           }
