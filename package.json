@@ -6,8 +6,8 @@
   "scripts": {
     "setup": "npm install",
     "dev": "npm run server",
-    "start": "node server.js",
-    "server": "nodemon server.js"
+    "start": "node index.js",
+    "server": "nodemon index.js"
   },
   "author": "Orif Milod",
   "license": "MIT",
