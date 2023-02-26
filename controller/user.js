@@ -5,7 +5,7 @@ const jwt = require("jsonwebtoken");
 const nodemailer = require("nodemailer");
 
 exports.signUp = (req, res) => {
-  const { email, password } = req.body;
+  const { username,email, password } = req.body;
 
   User.findOne({ email }) //Checking if the email exist
     .then((user) => {
@@ -18,9 +18,11 @@ exports.signUp = (req, res) => {
           else {
             const userData = new User({
               _id: mongoose.Types.ObjectId(),
+              username:username,
               email: email,
               password: hash,
-              favouriteMovies: [],
+              favouriteStocks: [],
+              purchasedStocks: [],
             });
             userData
               .save()
@@ -40,17 +42,17 @@ exports.signUp = (req, res) => {
                   .sendMail({
                     from: process.env.SENDER_EMAIL,
                     to: `${email}`,
-                    subject: "Welcome to iCinema",
-                    text: `Hello Dear ${email}`,
-                    html: `<b>Hello Dear User, we are happy that you join our family. Kind Regards, iCinema Team.</b>`,
+                    subject: "Welcome to Stock Analysis App",
+                    text: `Hello Dear ${username}`,
+                    html: `<b>Hello Dear User, we are happy that you join our family. Kind Regards, Stock Analysis App Team.</b>`,
                   })
                   .then((info) => console.log("Email has been sent!"))
                   .catch((err) => console.log(err));
                 res.status(201).json({
                   message: "The user has been signed up successfully!",
                   userData,
-                  favouriteMovies: [],
-                });
+                  favouriteStocks: [],
+                  purchasedStocks: [],                });
               })
               .catch((error) => res.status(500).json({ error }));
           }
