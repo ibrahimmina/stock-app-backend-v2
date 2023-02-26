@@ -40,13 +40,6 @@ app.use("/api/genres", genreRoute); //cache
 app.use("/api/users", userRoute);
 app.use("/api/stocks", stocksRoute);
 
-//Serve our static asset
-app.use(express.static("frontend/build"));
-
-app.get("*", (req, res) => {
-  res.sendFile(path.resolve(__dirname, "frontend", "build", "index.html"));
-});
-
 const port = process.env.BACKENDPORT || 5000;
 console.log(port);
 app.listen(port, () => console.log(`Server running on port ${port}`));
