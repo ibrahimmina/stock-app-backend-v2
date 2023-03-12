@@ -51,7 +51,7 @@ exports.signUp = (req, res) => {
                 res.status(201).json({
                   message: "The user has been signed up successfully!",
                   userData,
-                  favouriteStocks: [],
+                  userConfiguration: [],
                   purchasedStocks: [],                
                 });
               })
@@ -94,7 +94,7 @@ exports.updateUser = (req, res, next) => {
   const userID = req.params.userID;
 
   User.updateMany({ _id: userID }, { $set: req.body })
-    .then((result) => result.state(200).json(result))
+    .then((result) => res.status(200).json(result))
     .catch((error) => res.status(409).json(error));
 };
 
