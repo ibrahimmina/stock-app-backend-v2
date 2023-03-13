@@ -1,12 +1,5 @@
 const mongoose = require("mongoose");
 
-const purchasedStocksSchema = mongoose.Schema({
-  
-  Ticker: { type: String }, 
-  Buy_Price: { type: Number }, 
-  Buy_Date: { type: Date }
-  
-});
 
 const userConfigurationSchema = mongoose.Schema({
 
@@ -26,8 +19,7 @@ const userSchema = mongoose.Schema({
     match: /^(([^<>()\[\]\.,;:\s@\"]+(\.[^<>()\[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/,
   },
   password: { type: String, required: true },
-  userConfiguration: [userConfigurationSchema],
-  purchasedStocks: [purchasedStocksSchema],
+  UserConfig: [userConfigurationSchema],
 });
 
 

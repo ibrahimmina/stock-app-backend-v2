@@ -21,8 +21,12 @@ exports.signUp = (req, res) => {
               username:username,
               email: email,
               password: hash,
-              favouriteStocks: [],
-              purchasedStocks: [],
+              UserConfig: [{
+                Annual_Bank_Rate: 20,
+                Min_Order_Lifetime: 2,
+                ROI:35,
+                Risk:0
+              }],
             });
             userData
               .save()

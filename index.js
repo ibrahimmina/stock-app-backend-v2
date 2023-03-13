@@ -7,7 +7,7 @@ const movieRoute = require("./routes/movies");
 const genreRoute = require("./routes/genres");
 const userRoute = require("./routes/users");
 const stocksRoute = require("./routes/stocksData");
-
+const purchasedStocksRoute = require("./routes/purchasedStocks")
 const app = express();
 
 process.env["BACKENDPORT"] = 3000;
@@ -39,6 +39,7 @@ app.use("/api/movies", movieRoute);
 app.use("/api/genres", genreRoute); //cache
 app.use("/api/users", userRoute);
 app.use("/api/stocks", stocksRoute);
+app.use("/api/purchasedStocks", purchasedStocksRoute);
 
 const port = process.env.BACKENDPORT || 5000;
 console.log(port);
