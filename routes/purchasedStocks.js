@@ -1,7 +1,7 @@
 const express = require("express");
 const router = express.Router();
 // const checkAuth = require("../middleware/checkAuth");
-const { addPurchasedStocks, getAllPurchasedStocks, deletePurchasedStocks } = require("../controller/purchasedStocks");
+const { addPurchasedStocks, getAllPurchasedStocks, deletePurchasedStocks, addPurchasedStocksGet } = require("../controller/purchasedStocks");
 
 //Handling all the incoming requests
 //router.post("/addPurchasedStocks", addPurchasedStocks);
