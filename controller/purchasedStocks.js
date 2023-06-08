@@ -1,6 +1,28 @@
 const PurchasedStocks = require("../models/purchasedStocks");
 const mongoose = require("mongoose");
 
+exports.addPurchasedStocksGet = (req, res) => {
+  const purchasedStock = new PurchasedStocks({
+    _id: mongoose.Types.ObjectId(),
+    UserID:req.params.userID,
+    ticker: req.params.ticker,
+    Buy_Price: req.params.Buy_Price,
+    Buy_Date:req.params.Buy_Date,
+  })
+
+  purchasedStock
+  .save()
+  .then(() =>
+    res.status(201).json({ message: "Purchased Stock added successfuly to MongoDB" })
+  )
+  .catch((error) =>
+    res.status(500).json({
+      message: "Something went wrong when adding to MongoDB",
+      error,
+    })
+  );
+};
+
 exports.addPurchasedStocks = (req, res) => {
   const purchasedStock = new PurchasedStocks({
     _id: mongoose.Types.ObjectId(),
