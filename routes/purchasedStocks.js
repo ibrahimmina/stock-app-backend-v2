@@ -6,5 +6,5 @@ const { addPurchasedStocks, getAllPurchasedStocks, deletePurchasedStocks } = req
 //Handling all the incoming requests
 router.post("/addPurchasedStocks", addPurchasedStocks);
 router.post("/getAllPurchasedStocks/:userID", getAllPurchasedStocks);
-router.patch("/deletePurchasedStocks/:PurchasedStocksID", deletePurchasedStocks);
+router.get("/deletePurchasedStocks/:PurchasedStocksID", deletePurchasedStocks);
 module.exports = router;
